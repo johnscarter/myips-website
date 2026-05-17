@@ -1,0 +1,70 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+  repository_dispatch:
+    types: [docs-updated]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout myips-website
+        uses: actions/checkout@v4
+
+      - name: Checkout myips (private)
+        uses: actions/checkout@v4
+        with:
+          repository: johnscarter/myips
+          token: ${{ secrets.MYIPS_READ_TOKEN }}
+          path: _myips-src
+
+      - name: Copy and inject front matter — user guide
+        run: |
+          printf -- '---\nlayout: default\ntitle: User Guide\npermalink: /user-guide/\n---\n\n' > user-guide.md
+          cat _myips-src/docs/user-guide/user-guide.md >> user-guide.md
+
+      - name: Copy and inject front matter — privacy policy
+        run: |
+          if [ -f _myips-src/docs/privacy-policy.md ]; then
+            printf -- '---\nlayout: default\ntitle: Privacy Policy\npermalink: /privacy/\n---\n\n' > privacy.md
+            cat _myips-src/docs/privacy-policy.md >> privacy.md
+          else
+            echo "privacy-policy.md not found in myips repo — skipping"
+          fi
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.2'
+          bundler-cache: true
+
+      - name: Build Jekyll
+        run: bundle exec jekyll build
+        env:
+          JEKYLL_ENV: production
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
