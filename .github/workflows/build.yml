@@ -48,11 +48,7 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.2'
-
-      - name: Add Linux platform and install gems
-        run: |
-          bundle lock --add-platform x86_64-linux
-          bundle install --jobs 4 --retry 3
+          bundler-cache: true
 
       - name: Build Jekyll
         run: bundle exec jekyll build
