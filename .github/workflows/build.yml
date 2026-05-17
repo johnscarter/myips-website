@@ -44,6 +44,9 @@ jobs:
             echo "privacy-policy.md not found in myips repo — skipping"
           fi
 
+      - name: Add Linux platform to Gemfile.lock
+        run: bundle lock --add-platform x86_64-linux
+
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
