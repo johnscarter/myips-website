@@ -37,11 +37,11 @@ jobs:
 
       - name: Copy and inject front matter — privacy policy
         run: |
-          if [ -f _myips-src/docs/privacy-policy.md ]; then
+          if [ -f _myips-src/docs/MyIPS-PrivacyPolicy-v2.md ]; then
             printf -- '---\nlayout: default\ntitle: Privacy Policy\npermalink: /privacy/\n---\n\n' > privacy.md
-            cat _myips-src/docs/privacy-policy.md >> privacy.md
+            cat _myips-src/docs/MyIPS-PrivacyPolicy-v2.md >> privacy.md
           else
-            echo "privacy-policy.md not found in myips repo — skipping"
+            echo "MyIPS-PrivacyPolicy-v2.md not found in myips repo — skipping"
           fi
 
       - name: Setup Ruby
