@@ -44,14 +44,15 @@ jobs:
             echo "privacy-policy.md not found in myips repo — skipping"
           fi
 
-      - name: Add Linux platform to Gemfile.lock
-        run: bundle lock --add-platform x86_64-linux
-
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.2'
-          bundler-cache: true
+
+      - name: Add Linux platform and install gems
+        run: |
+          bundle lock --add-platform x86_64-linux
+          bundle install --jobs 4 --retry 3
 
       - name: Build Jekyll
         run: bundle exec jekyll build
