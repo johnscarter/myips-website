@@ -49,3 +49,4 @@ MyIPS addresses these frustrations in several ways, giving you complete control 
 - [Treatment B](/index-b.html) — app icon + wordmark
 - [Treatment C](/index-c.html) — pulse icon + wordmark
 - [Treatment D](/index-d.html) — wordmark + tagline
+- [Treatment E](/index-e.html) — app-icon badge + stacked wordmark / tagline
