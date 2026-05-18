@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Logo Treatment D — MyIPS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <style>
+    .logo-d {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      text-decoration: none;
+      flex-shrink: 0;
+      line-height: 1;
+    }
+    .logo-d:hover { text-decoration: none; }
+    .logo-d:hover .logo-d-name { color: #D4EDF2; }
+    .logo-d-text {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .logo-d-name {
+      font-size: 17px;
+      font-weight: 600;
+      color: white;
+      letter-spacing: -0.01em;
+    }
+    .logo-d-tag {
+      font-size: 9.5px;
+      font-weight: 400;
+      color: rgba(255, 255, 255, 0.52);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    /* Slightly taller header to breathe with the two-line text */
+    .site-header-inner { height: 62px; }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="site-header-inner">
+      <a class="logo-d" href="/">
+        <!-- Larger mark to balance the taller two-line text block -->
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs>
+            <pattern id="grid-d" width="3" height="3" patternUnits="userSpaceOnUse">
+              <path d="M3 0H0V3" fill="none" stroke="rgba(255,255,255,0.20)" stroke-width="0.45"/>
+            </pattern>
+          </defs>
+          <rect width="24" height="24" fill="url(#grid-d)"/>
+          <circle cx="12" cy="12" r="10"  stroke="rgba(255,255,255,0.70)" stroke-width="0.9"/>
+          <circle cx="12" cy="12" r="6.5" stroke="rgba(255,255,255,0.70)" stroke-width="0.9"/>
+          <circle cx="12" cy="12" r="3"   stroke="rgba(255,255,255,0.70)" stroke-width="0.9"/>
+        </svg>
+        <span class="logo-d-text">
+          <span class="logo-d-name">MyIPS</span>
+          <span class="logo-d-tag">Your health summary</span>
+        </span>
+      </a>
+      <nav class="site-nav">
+        <a href="/" class="active">Home</a>
+        <a href="/user-guide/">User Guide</a>
+        <a href="/privacy/">Privacy Policy</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="site-main">
+    <div class="content">
+      <h1>Treatment D — Mark + stacked wordmark / tagline</h1>
+      <p>A slightly larger mark (32 px) paired with a two-line text block: "MyIPS" in bold above a small all-caps "Your health summary" descriptor. The header grows by 6 px to accommodate. Makes the app's purpose legible to first-time visitors without any prior knowledge of what IPS means.</p>
+
+      <hr>
+
+      <h2>All treatments</h2>
+      <ul>
+        <li><a href="index-a.html">A — Mark + wordmark, white strokes</a></li>
+        <li><a href="index-b.html">B — App-icon badge + wordmark</a></li>
+        <li><a href="index-c.html">C — Mark + wordmark, teal-accent strokes</a></li>
+        <li><strong>D — Mark + stacked wordmark / tagline</strong> (this page)</li>
+      </ul>
+
+      <p><a href="/">← Back to homepage</a></p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <p>&copy; 2026 MyIPS. All data is stored locally on your device.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
