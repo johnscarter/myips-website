@@ -42,11 +42,3 @@ MyIPS addresses these frustrations in several ways, giving you complete control 
 
 - [User Guide](/user-guide/) — step-by-step instructions for using the app
 - [Privacy Policy](/privacy/) — how your data is handled
-
-## Header logo explorations
-
-- [Treatment A](/index-a.html) — text wordmark only (current)
-- [Treatment B](/index-b.html) — app icon + wordmark
-- [Treatment C](/index-c.html) — pulse icon + wordmark
-- [Treatment D](/index-d.html) — wordmark + tagline
-- [Treatment E](/index-e.html) — app-icon badge + stacked wordmark / tagline

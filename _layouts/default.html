@@ -13,7 +13,27 @@
 <body>
   <header class="site-header">
     <div class="site-header-inner">
-      <a class="site-title" href="{{ '/' | relative_url }}">MyIPS</a>
+      <a class="site-logo" href="{{ '/' | relative_url }}">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs>
+            <clipPath id="badge-clip">
+              <rect width="24" height="24" rx="5.5"/>
+            </clipPath>
+            <pattern id="grid" width="3" height="3" patternUnits="userSpaceOnUse">
+              <path d="M3 0H0V3" fill="none" stroke="#8099A6" stroke-width="0.45"/>
+            </pattern>
+          </defs>
+          <rect width="24" height="24" rx="5.5" fill="#EDF7FA"/>
+          <rect width="24" height="24" fill="url(#grid)" clip-path="url(#badge-clip)"/>
+          <circle cx="12" cy="12" r="10"  stroke="#8099A6" stroke-width="0.9" clip-path="url(#badge-clip)"/>
+          <circle cx="12" cy="12" r="6.5" stroke="#8099A6" stroke-width="0.9" clip-path="url(#badge-clip)"/>
+          <circle cx="12" cy="12" r="3"   stroke="#8099A6" stroke-width="0.9" clip-path="url(#badge-clip)"/>
+        </svg>
+        <span class="site-logo-text">
+          <span class="site-logo-name">MyIPS</span>
+          <span class="site-logo-tag">Take control of your health info</span>
+        </span>
+      </a>
       <nav class="site-nav">
         <a href="{{ '/' | relative_url }}"{% if page.url == '/' %} class="active"{% endif %}>Home</a>
         <a href="{{ '/user-guide/' | relative_url }}"{% if page.url contains 'user-guide' %} class="active"{% endif %}>User Guide</a>
