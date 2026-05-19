@@ -17,6 +17,17 @@ The CI build step SHALL parse `user-guide.md` to extract all locally-referenced 
 - **WHEN** `user-guide.md` references an image that does not exist in the source repo
 - **THEN** the build step SHALL fail with a non-zero exit code
 
+### Requirement: Images are styled in harmony with the site design
+Images rendered in the user guide SHALL be visually constrained and styled using the site's existing design tokens, so they integrate with surrounding content rather than dominating it.
+
+#### Scenario: Images are limited in width
+- **WHEN** an image is rendered in the user guide
+- **THEN** it SHALL have a max-width that keeps it proportionate to the surrounding text, and SHALL scale down on narrow viewports
+
+#### Scenario: Images have a border and shadow
+- **WHEN** an image is rendered in the user guide
+- **THEN** it SHALL have a border using `--color-border`, rounded corners using a site radius token, and a shadow using a site shadow token
+
 ### Requirement: Website rebuilds when source images change
 The `notify-website` workflow in the `myips` repo SHALL trigger a website rebuild when any file under `assets/` is added or modified on the main branch.
 
