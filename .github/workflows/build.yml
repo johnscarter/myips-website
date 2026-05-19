@@ -35,6 +35,17 @@ jobs:
           printf -- '---\nlayout: default\ntitle: User Guide\npermalink: /user-guide/\n---\n\n' > user-guide.md
           cat _myips-src/docs/user-guide/user-guide.md >> user-guide.md
 
+      - name: Copy user guide images
+        run: |
+          grep -oP '!\[.*?\]\(\K[^)]+' _myips-src/docs/user-guide/user-guide.md \
+            | grep -v '^https\?://' \
+            | while IFS= read -r img; do
+                src="$(realpath "_myips-src/docs/user-guide/$img")"
+                fname="$(basename "$src")"
+                cp "$src" "assets/$fname"
+                echo "Copied $fname"
+              done
+
       - name: Copy and inject front matter — privacy policy
         run: |
           if [ -f _myips-src/docs/MyIPS-PrivacyPolicy-v2.md ]; then
